@@ -1,0 +1,237 @@
+﻿body {
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.landingLayout {
+    height: 1000px;
+    width: 1349px;
+    background: url("Images/background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+div {
+    font-family: Century;
+}
+
+    div.Header {
+        font-size: 60px;
+        width: 50%;
+        float: left;
+        color: white;
+    }
+
+    div.connectLink a {
+        font-size: 40px;
+        float: right;
+        width: 50%;
+        padding-top: 23px;
+        padding-left: 250px;
+        color: white;
+        cursor: pointer;
+    }
+
+.width100 {
+    width: 100%;
+}
+
+.width70 {
+    width: 70%;
+}
+
+.width15 {
+    width: 15%;
+}
+
+.width30 {
+    width: 30%;
+}
+
+.floatRight {
+    float: right;
+}
+
+.floatLeft {
+    float: left;
+}
+
+
+div.landing {
+    padding-top: 320px;
+}
+
+div.theHeaderBar {
+    width: 100%;
+    height: 70px;
+    background: -webkit-linear-gradient(#27E6DA, #0DB5AC); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#27E6DA, #0DB5AC); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#27E6DA, #0DB5AC); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#27E6DA, #0DB5AC); /* Standard syntax (must be last) */
+    color: white;
+}
+
+    div.theHeaderBar .logo {
+        font-size: 40px;
+        padding: 10px;
+    }
+
+    div.theHeaderBar a {
+        color: white;
+        cursor: pointer;
+    }
+
+    div.theHeaderBar .usermenu {
+        background: -webkit-linear-gradient(#27E6DA, #0DB5AC); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#27E6DA, #0DB5AC); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#27E6DA, #0DB5AC); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#27E6DA, #0DB5AC); /* Standard syntax (must be last) */
+    }
+
+    div.theHeaderBar .username {
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 25px;
+    }
+
+        div.theHeaderBar .username:hover {
+            font-weight: bolder;
+        }
+
+    div.theHeaderBar .usermenuWrapper {
+        padding-right: 20px;
+    }
+
+.avatar {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.avatarWrapper {
+    padding: 5px;
+}
+
+ul#user_spot {
+    list-style: none;
+}
+
+    ul#user_spot li {
+        margin: 0px;
+        padding: 0px;
+        float: left;
+        position: relative;
+        cursor: pointer;
+    }
+
+ul#user_spot_links {
+    position: absolute;
+    top: 60px;
+    right: 0%;
+    display: none;
+    list-style: none;
+    width: auto;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    border-radius: 20px;
+    /*border: 1px solid white;*/
+    padding-left: 0px;
+}
+
+    ul#user_spot_links li {
+        float: none;
+        clear: both;
+        padding: 5px;
+        white-space: nowrap;
+        text-align: left;
+        background: -webkit-linear-gradient(#27E6DA, #0DB5AC); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#27E6DA, #0DB5AC); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#27E6DA, #0DB5AC); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#27E6DA, #0DB5AC); /* Standard syntax (must be last) */
+    }
+
+ul#user_spot:hover ul#user_spot_links {
+    display: block;
+}
+
+.white-caret {
+    border-top-color: white !important;
+    border-bottom-color: white !important;
+}
+
+
+.section {
+    border-radius: 20px;
+    border: 3px solid #27E6DA;
+    box-shadow: 12px 12px 12px rgba(0,0,0,.175);
+    height: 500px;
+    width: 400px;
+    margin: 10px;
+    padding: 10px;
+    float: left;
+}
+
+.dashoboardWrap {
+    padding: 50px;
+}
+
+.pin_img1 {
+    position: absolute;
+    z-index: 10;
+    top: 114px;
+    left: 67px;
+}
+
+.pin_img2 {
+    position: absolute;
+    z-index: 10;
+    top: 114px;
+    left: 487px;
+}
+
+.pin_img3 {
+    position: absolute;
+    z-index: 10;
+    top: 114px;
+    left: 907px;
+}

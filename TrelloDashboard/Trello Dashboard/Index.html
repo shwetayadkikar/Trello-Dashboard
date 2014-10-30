@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="trelloDashboard">
+<head>
+    <title>Trello Dashboard</title>
+</head>
+<body>
+
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/Site.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-2.1.1.js"></script>
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular-route.min.js"></script>
+ 
+    <script type="text/javascript" src="https://api.trello.com/1/client.js?key=7259a3d96013866d4051f5536599bb37"></script>
+  
+    <script src="app.js"></script>
+    <script src="Services/AuthService.js"></script>
+    <script src="Services/AuthService.js"></script>
+    <script src="Services/MemberService.js"></script>
+    <script src="Controllers/LoginController.js"></script>
+    <script src="Directives/AvatarDirective.js"></script>
+    <script src="Directives/MentionsDirective.js"></script>
+    <script src="Controllers/DashboardController.js"></script>
+
+    <div id="divMain" ng-controller="AppController as appCtrl">
+
+        <div ng-view>
+        </div>
+        <!--<div ng-controller="LoginController as loginCtrl">-->
+        <!--<div id="divMyDashboard" ng-show="appCtrl.isUserAuthorized()">
+            <div class="theHeaderBar">
+                <div class="floatLeft logo">Trello Dashboard</div>
+                <div class="floatRight usermenuWrapper width30" >
+                    <ul class="floatRight  user_spot" id="user_spot">
+                        <li class="usermenu">
+                            <div class="floatRight username">{{ loginCtrl.User.fullName }}<span class="caret white-caret"></span></div>
+                            <div class="floatRight avatarWrapper">
+                                <avatar avatarhash="loginCtrl.User.gravatarHash"></avatar>
+                            </div>
+                            <ul id="user_spot_links">
+                                <li><a ng-click="loginCtrl.Logout()">Checkout Team mates' activities</a></li>
+                                <li><a ng-click="loginCtrl.Logout()">Burn Task hours</a></li>
+                                <li><a ng-click="loginCtrl.Logout()">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="myDashboardBody" ng-controller="MyDashboardController as myDbCtrl">
+                <div id="boardsFilter" class="width100"></div>
+                <div class="dashoboardWrap">
+                    <img src="Content/Images/pin_icon.png" class="pin_img1" />
+                    <div id="myMentions" class="section" ng-model="myDbCtrl.allMentions">
+                        <mentions mentionslist="allMentions"></mentions>
+                    </div>
+                    <img src="Content/Images/pin_icon.png" class="pin_img2" />
+                    <div id="myActivities" class="section"></div>
+                    <img src="Content/Images/pin_icon.png" class="pin_img3" />
+                    <div id="myCalendar" class="section"></div>
+                </div>
+            </div>
+        </div>-->
+        <!--</div>-->
+    </div>
+
+</body>
+</html>
