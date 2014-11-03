@@ -5,29 +5,16 @@ function AuthService($location) {
     self.authorize = authorize;
     self.isAuthorized = isAuthorized;
     self.deauthorize = deauthorize;
-    self.onAuthorize = onAuthorize;
+    //self.onAuthorize = onAuthorize;
 
-    function authorize() {
+    function authorize(onAuthorize) {
         Trello.authorize({
             type: "popup",
-            success: self.onAuthorize,
+            success: onAuthorize,
             error: function () { console.log("error"); },
             scope: { write: true, read: true }
         });
-    }
-
-    function onAuthorize() {
-        console.log("in onauth");
-        if (isAuthorized()) {
-            console.log("auth");
-            $location.url("/Dashboard");
-        }
-            //COMMENT THIS
-        else {
-            console.log("not auth");
-        }
-
-    }
+    }    
 
     function deauthorize() {
         Trello.deauthorize();
