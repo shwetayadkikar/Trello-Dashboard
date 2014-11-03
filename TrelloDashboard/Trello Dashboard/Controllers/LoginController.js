@@ -9,7 +9,7 @@ function LoginController($rootScope, $scope, $location, AuthService, MemberServi
     self.isUserAuthorized = isUserAuthorized;
 
     function login() {
-        AuthService.authorize();
+        AuthService.authorize(onAuthorize);
     }
 
 
@@ -19,7 +19,7 @@ function LoginController($rootScope, $scope, $location, AuthService, MemberServi
 
     function onAuthorize() {
         console.log("in onauth");
-        if (isAuthorized()) {
+        if (isUserAuthorized()) {
             console.log("auth");
             $location.url("/Dashboard");
         }

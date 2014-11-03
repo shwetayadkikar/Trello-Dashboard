@@ -7,7 +7,7 @@ function mentionsDirective(MemberService) {
         scope: {
             mentionslist: "="
         },
-        template: '<div>{{ mentionslist }}</div>',
+        template: '<div>{{ mentionslist[0].data.text }}</div>',
         link: function (scope, element, attrs) {
           
             console.log("inside mentions:");
