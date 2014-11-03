@@ -5,12 +5,10 @@ angular.module("trelloDashboard").controller("AppController", ['$scope', '$rootS
 
 function AppController($scope, $rootScope, AuthService) {
     var self = this;
-    $rootScope.UserLoggedIn = false;
-
-
-    function getAvatarSource(gravatarHash) {
-        return "http://www.gravatar.com/avatar/" + avatarHash;
-    }
+ 
+    //function getAvatarSource(gravatarHash) {
+    //    return "http://www.gravatar.com/avatar/" + avatarHash;
+    //}
 }
 
 angular.module('trelloDashboard').config(['$routeProvider', function ($routeProvider) {

@@ -1,3 +1,33 @@
-﻿<div>
-    <div>{{ user.fullName }}</div>
+﻿<div id="divMyDashboard">
+    <div class="theHeaderBar">
+        <div class="floatLeft logo">Trello Dashboard</div>
+        <div class="floatRight usermenuWrapper width30">
+            <ul class="floatRight  user_spot" id="user_spot">
+                <li class="usermenu">
+                    <div class="floatRight username">{{ user.fullName }}<span class="caret white-caret"></span></div>
+                    <div class="floatRight avatarWrapper">
+                        <avatar avatarhash="user.gravatarHash"></avatar>
+                    </div>
+                    <ul id="user_spot_links">
+                        <li><a ng-click="Logout()">Checkout Team mates' activities</a></li>
+                        <li><a ng-click="Logout()">Burndown chart</a></li>
+                        <li><a ng-click="Logout()">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="myDashboardBody">
+        <div id="boardsFilter" class="width100"></div>
+        <div class="dashoboardWrap">
+            <img src="Content/Images/pin_icon.png" class="pin_img1" />
+            <div id="myMentions" class="section">
+                <!--<mentions mentionslist="allMentions"></mentions>-->
+            </div>
+            <img src="Content/Images/pin_icon.png" class="pin_img2" />
+            <div id="myActivities" class="section"></div>
+            <img src="Content/Images/pin_icon.png" class="pin_img3" />
+            <div id="myCalendar" class="section"></div>
+        </div>
+    </div>
 </div>

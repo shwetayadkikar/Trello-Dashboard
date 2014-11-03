@@ -6,15 +6,10 @@ angular.module("trelloDashboard")
 function LoginController($rootScope, $scope, $location, AuthService, MemberService) {
     var self = this;
     self.Login = login;
-    self.Logout = logout;
     self.isUserAuthorized = isUserAuthorized;
 
     function login() {
-        //logout();
-
         AuthService.authorize();
-
-
     }
 
 
@@ -22,10 +17,17 @@ function LoginController($rootScope, $scope, $location, AuthService, MemberServi
         return AuthService.isAuthorized();
     }
 
-    function logout() {
-        AuthService.deauthorize();
-        $rootScope.UserLoggedIn = false;
-    }
+    function onAuthorize() {
+        console.log("in onauth");
+        if (isAuthorized()) {
+            console.log("auth");
+            $location.url("/Dashboard");
+        }
+            //COMMENT THIS
+        else {
+            console.log("not auth");
+        }
 
+    }
 
 }

@@ -57,18 +57,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\font-awesome.css" />
-    <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\Images\background.png" />
-    <Content Include="Content\Images\background1.png" />
-    <Content Include="Content\Images\pin_icon.png" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Content\toastr.css" />
-    <Content Include="Content\toastr.min.css" />
+    <Content Include="Trello Dashboard\Content\bootstrap-theme.css" />
+    <Content Include="Trello Dashboard\Content\bootstrap-theme.min.css" />
+    <Content Include="Trello Dashboard\Content\bootstrap.css" />
+    <Content Include="Trello Dashboard\Content\bootstrap.min.css" />
+    <Content Include="Trello Dashboard\Content\font-awesome.css" />
+    <Content Include="Trello Dashboard\Content\font-awesome.min.css" />
+    <Content Include="Trello Dashboard\Content\Images\background.png" />
+    <Content Include="Trello Dashboard\Content\Images\background1.png" />
+    <Content Include="Trello Dashboard\Content\Images\pin_icon.png" />
+    <Content Include="Trello Dashboard\Content\Site.css" />
+    <Content Include="Trello Dashboard\Content\toastr.css" />
+    <Content Include="Trello Dashboard\Content\toastr.min.css" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -860,10 +860,10 @@
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\version.json" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\toastr.less" />
-    <Content Include="Content\toastr.scss" />
+    <Content Include="Trello Dashboard\Content\bootstrap-theme.css.map" />
+    <Content Include="Trello Dashboard\Content\bootstrap.css.map" />
+    <Content Include="Trello Dashboard\Content\toastr.less" />
+    <Content Include="Trello Dashboard\Content\toastr.scss" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
