@@ -9,7 +9,8 @@ function LoginController($rootScope, $scope, $location, AuthService, MemberServi
     self.isUserAuthorized = isUserAuthorized;
 
     function login() {
-        AuthService.authorize(onAuthorize);
+        var promise = AuthService.authorize();
+        promise.then(onAuthorize);
     }
 
 
