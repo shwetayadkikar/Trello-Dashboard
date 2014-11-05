@@ -13,8 +13,8 @@ function MemberService($q) {
         return $q(function (resolve) { Trello.members.get("me", resolve); });
     }
 
-    function getMemberMentions(username, mentionsCallback) {
-        Trello.members.get(username + "/notifications?filter=mentionedOnCard", mentionsCallback);
+    function getMemberMentions(username) {
+        return $q(function (resolve) { Trello.members.get(username + "/notifications?filter=mentionedOnCard", resolve) });
     }
 
     return self;

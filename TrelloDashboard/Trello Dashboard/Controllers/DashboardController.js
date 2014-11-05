@@ -4,10 +4,13 @@
 
 function DashboardController($scope, $location, MemberService, AuthService, user) {
     var self = this;
-    self.allMentions = {};
     $scope.Logout = logout;
     $scope.user = user;
+    $scope.allMentions = { id : 1};
     console.log(user);
+
+    var promise = MemberService.getMemberMentions(user.username);
+    promise.then(mentionsCallback);
 
     function logout() {
         console.log("logging out!");
@@ -15,13 +18,14 @@ function DashboardController($scope, $location, MemberService, AuthService, user
         $location.url("/");
     }
 
-    //function mentionsCallback(mentions) {
-    //    console.log(mentions);
-    //    self.allMentions = mentions;
-    //}
+    function mentionsCallback(mentions) {
+        console.log(mentions);
+        $scope.allMentions = mentions;
+    }
+
     //console.log($scope.$parent.User);
     //if ($scope.$parent.User) {
-    //    MemberService.getMemberMentions($scope.$parent.User.username, mentionsCallback);
+    //    
     //}
 
 

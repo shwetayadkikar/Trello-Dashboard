@@ -839,6 +839,7 @@
     <Content Include="Trello Dashboard\Index.html" />
     <Content Include="Trello Dashboard\Services\AuthService.js" />
     <Content Include="Trello Dashboard\Services\MemberService.js" />
+    <Content Include="Trello Dashboard\Templates\Mentions.html" />
     <Content Include="Trello Dashboard\Views\Dashboard.html" />
     <Content Include="Trello Dashboard\Views\Login.html" />
     <Content Include="Web.config" />
