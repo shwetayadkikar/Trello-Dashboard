@@ -209,7 +209,26 @@ ul#user_spot:hover ul#user_spot_links {
     margin: 10px;
     padding: 10px;
     float: left;
+    color: #0DB5AC;
+    overflow-y: scroll;
 }
+
+.subSection {
+    padding: 10px;
+    border-bottom: 1px solid #27E6DA;
+}
+
+    .subSection::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .subSection:hover {
+        background-color: rgba(239, 239, 239, 0.78);
+    }
+
+
 
 .dashoboardWrap {
     padding: 50px;
@@ -234,4 +253,8 @@ ul#user_spot:hover ul#user_spot_links {
     z-index: 10;
     top: 114px;
     left: 907px;
+}
+
+.data {
+    padding: 5px;
 }

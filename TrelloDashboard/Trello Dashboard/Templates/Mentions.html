@@ -1,4 +1,8 @@
-﻿
-<div ng-repeat="mention in mentionslist">
-    <div>{{ mention.data.text }}</div>
+﻿<h3><center>Mentions</center></h3>
+<div class="data">
+    <div class="subSection" ng-repeat="mention in mentionslist">
+        <div class="width100">{{ mention.memberCreator.username }} mentioned you:</div>
+        <div class="width100" style="padding-left:10px;">{{ mention.data.text }}</div>
+        <div class="floatRight">{{ mention.date | date:'medium' }}</div>
+    </div>
 </div>
