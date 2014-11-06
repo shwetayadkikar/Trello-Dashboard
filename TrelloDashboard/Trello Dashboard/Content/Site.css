@@ -210,7 +210,7 @@ ul#user_spot:hover ul#user_spot_links {
     padding: 10px;
     float: left;
     color: #0DB5AC;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 .subSection {
@@ -257,4 +257,7 @@ ul#user_spot:hover ul#user_spot_links {
 
 .data {
     padding: 5px;
+    overflow-y: scroll;
+    text-wrap: avoid;
+    height: 400px;
 }
