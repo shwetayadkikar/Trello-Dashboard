@@ -1,3 +1,3 @@
 Trello-Dashboard
 ================
-[Read Wiki!] (wiki/Home)
+[Read Wiki!] (https://github.com/shwetayadkikar/Trello-Dashboard/wiki/Home)
