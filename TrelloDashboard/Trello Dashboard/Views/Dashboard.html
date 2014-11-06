@@ -25,7 +25,9 @@
                 <mentions mentionslist="allMentions"></mentions>
             </div>
             <img src="Content/Images/pin_icon.png" class="pin_img2" />
-            <div id="myActivities" class="section"></div>
+            <div id="myActivities" class="section" ng-model="actions">
+                <activities actions="actions" user="user"></activities>
+            </div>
             <img src="Content/Images/pin_icon.png" class="pin_img3" />
             <div id="myCalendar" class="section"></div>
         </div>
