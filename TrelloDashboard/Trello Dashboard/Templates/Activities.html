@@ -1,3 +1,259 @@
-﻿<div ng-repeat="action in actions | filter:filterMemberActivities">
-    {{ action.memberCreator.username }}
+﻿<h3><center>Activities</center></h3>
+<div class="data">
+    <div class="subSection" ng-repeat="action in actions | orderBy:'date':true">
+        <div ng-switch="action.type">
+            <div ng-switch-when="addAttachmentToCard">
+                You added an attachment
+                <a href="{{ action.data.attachment.url }}"> {{ action.data.attachment.name }}</a> in the card <strong>{{ action.data.card.name }}</strong> on the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="addChecklistToCard">
+                You created a new checklist <strong>{{ action.data.checklist.name }}</strong>  in the card <strong>{{ action.data.card.name }}</strong> on the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="addMemberToBoard">
+                You added a member <strong>{{ action.member.fullname }}</strong> to the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="addMemberToCard">
+                You added a member <strong>{{ action.member.fullname }}</strong> to the card <strong>{{ action.data.card.name }}</strong>  on the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="addMemberToOrganization">
+                You added a member <strong>{{ action.member.fullname }}</strong> to the organization <strong>{{ action.data.organization.name }}</strong>
+            </div>
+            <div ng-switch-when="addToOrganizationBoard">
+                You added a new board <strong>{{ action.data.board.name }}</strong> to the organization <strong>{{ action.data.organization.name }}</strong>
+            </div>
+            <div ng-switch-when="commentCard">
+                You commented "<strong>{{ action.data.text }}</strong>" on the card <strong>{{ action.data.card.name }}</strong> on the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="copyCommentCard"> check this out </div>
+            <div ng-switch-when="convertToCardFromCheckItem">
+                You converted a checklist item from card <strong>{{ action.data.cardSource.name }}</strong> into a separate card <strong>{{ action.data.card.name }}</strong>
+            </div>
+            <div ng-switch-when="copyBoard">
+                You copied board <strong>{{ action.data.boardSource.name }}</strong> to create a new board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="createBoard">
+                You created a new board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="createCard">
+                You created a new card <strong>{{ action.data.card.name }}</strong> in the list <strong>{{ action.data.list.name }}</strong> on the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="copyCard">
+                You copied card <strong>{{ action.data.cardSource.name }}</strong> to create a new card <strong>{{ action.data.card.name }}</strong>
+            </div>
+            <div ng-switch-when="createList">
+                You created a new card <strong>{{ action.data.list.name }}</strong> on the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="createOrganization">
+                You created a new organization <strong>{{ action.data.organization.name }}</strong>
+            </div>
+            <div ng-switch-when="deleteAttachmentFromCard">
+                You deleted <strong>{{ action.data.attachment.name }}</strong> from the card <strong>{{ action.data.card.name }}</strong> on the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="deleteBoardInvitation"> deleteBoardInvitation can't do this </div>
+            <div ng-switch-when="deleteCard">
+                You deleted a card from list <strong>{{ action.data.list.name }}</strong> in the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="deleteOrganizationInvitation"> deleteOrganizationInvitation can't do this </div>
+            <div ng-switch-when="disablePowerUp">
+                You disabled power up <strong>{{ action.data.value }}</strong> on the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="emailCard"> commentCard </div>
+            <div ng-switch-when="enablePowerUp">
+                You enabled power up <strong>{{ action.data.value }}</strong> on the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="makeAdminOfBoard">
+                You made <strong>{{ action.member.fullname }}</strong> the admin of the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="makeNormalMemberOfBoard">
+                You made <strong>{{ action.member.fullname }}</strong> a normal member of the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="makeNormalMemberOfOrganization">
+                You made <strong>{{ action.member.fullname }}</strong> a normal member of the organization <strong>{{ action.data.organization.name }}</strong>
+            </div>
+            <div ng-switch-when="makeObserverOfBoard">
+                You made <strong>{{ action.member.fullname }}</strong> an observer of the board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="memberJoinedTrello"> memberJoinedTrello not sure when this happens </div>
+            <div ng-switch-when="moveCardFromBoard">
+                You moved card <strong>{{ action.data.card.name }}</strong> from board <strong>{{ action.data.board.name }}</strong> to board <strong>{{ action.data.boardTarget.name }}</strong>
+            </div>
+            <div ng-switch-when="moveListFromBoard">
+                You moved card <strong>{{ action.data.list.name }}</strong> from board <strong>{{ action.data.boardSource.name }}</strong> to board <strong>{{ action.data.board.name }}</strong>
+            </div>
+            <div ng-switch-when="removeAdminFromBoard"> removeAdminFromBoard </div>
+            <div ng-switch-when="removeAdminFromOrganization"> removeAdminFromOrganization </div>
+            <div ng-switch-when="removeChecklistFromCard">
+                You removed checklist <strong>{{ action.data.checklist.name }}</strong> from the card <strong>{{ action.data.card.name }}</strong>
+            </div>
+            <div ng-switch-when="removeMemberFromCard">
+                You removed <strong>{{ action.member.fullname }}</strong> from the card <strong>{{ action.data.card.name }}</strong>
+            </div>
+            <div ng-switch-when="unconfirmedBoardInvitation"> unconfirmedBoardInvitation </div>
+            <div ng-switch-when="unconfirmedOrganizationInvitation"> unconfirmedOrganizationInvitation </div>
+            <div ng-switch-when="updateBoard">
+                <div ng-switch="identifyUpdateAction(action.data.old)">
+                    <div ng-switch-when="prefs">
+                        <div ng-switch="identifyUpdateAction(action.data.old.prefs)">
+                            <div ng-switch-when="permissionLevel">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's permission level from <strong>{{ action.data.old.prefs.permissionLevel }}</strong> to <strong>{{ action.data.board.prefs.permissionLevel }}</strong>
+                            </div>
+                            <div ng-switch-when="cardCovers">
+                                <div ng-show="{{ action.data.board.prefs.cardCovers }}">
+                                    You changed the settings of board <strong>{{ action.data.board.name }}</strong> to allow covers on the cards.
+                                </div>
+                                <div ng-hide="{{ action.data.board.prefs.cardCovers }}">
+                                    You changed the settings of board <strong>{{ action.data.board.name }}</strong> to not allow covers on the cards.
+                                </div>
+                            </div>
+                            <div ng-switch-when="comments">
+                                <div ng-show="{{ action.data.board.prefs.comments == 'disabled'}}">
+                                    You changed the settings of board <strong>{{ action.data.board.name }}</strong> to disable commenting on the cards.
+                                </div>
+                                <div ng-hide="{{ action.data.board.prefs.comments == 'members' }}">
+                                    You changed the settings of board <strong>{{ action.data.board.name }}</strong> to allow members to comment on the cards.
+                                </div>
+                            </div>
+                            <div ng-switch-when="background">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's background from <strong>{{ action.data.old.prefs.background }}</strong> to <strong>{{ action.data.board.prefs.background }}</strong>
+                            </div>
+                            <div ng-switch-when="invitations">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's invitations permissions from <strong>{{ action.data.old.prefs.invitations }}</strong> to <strong>{{ action.data.board.prefs.invitations }}</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-switch-when="closed">
+                        <div ng-show="{{ action.data.board.closed }}">
+                            You closed the board <strong>{{ action.data.board.name }}</strong>
+                        </div>
+                        <div ng-hide="{{ action.data.board.closed }}">
+                            You re-opened the board <strong>{{ action.data.board.name }}</strong>
+                        </div>
+                    </div>
+                    <div ng-switch-when="labelNames">
+                        <div ng-switch="identifyUpdateAction(action.data.old.labelNames)">
+                            <div ng-switch-when="green">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's green label name from <strong>{{ action.data.old.labelNames.green }}</strong> to <strong>{{ action.data.board.labelNames.green }}</strong>
+                            </div>
+                            <div ng-switch-when="yellow">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's yellow label name from <strong>{{ action.data.old.labelNames.yellow }}</strong> to <strong>{{ action.data.board.labelNames.yellow }}</strong>
+                            </div>
+                            <div ng-switch-when="orange">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's orange label name from <strong>{{ action.data.old.labelNames.orange }}</strong> to <strong>{{ action.data.board.labelNames.orange }}</strong>
+                            </div>
+                            <div ng-switch-when="red">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's red label name from <strong>{{ action.data.old.labelNames.red }}</strong> to <strong>{{ action.data.board.labelNames.red }}</strong>
+                            </div>
+                            <div ng-switch-when="purple">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's purple label name from <strong>{{ action.data.old.labelNames.purple }}</strong> to <strong>{{ action.data.board.labelNames.purple }}</strong>
+                            </div>
+                            <div ng-switch-when="blue">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's blue label name from <strong>{{ action.data.old.labelNames.blue }}</strong> to <strong>{{ action.data.board.labelNames.blue }}</strong>
+                            </div>
+                            <div ng-switch-when="sky">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's sky label name from <strong>{{ action.data.old.labelNames.sky }}</strong> to <strong>{{ action.data.board.labelNames.sky }}</strong>
+                            </div>
+                            <div ng-switch-when="lime">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's lime label name from <strong>{{ action.data.old.labelNames.lime }}</strong> to <strong>{{ action.data.board.labelNames.lime }}</strong>
+                            </div>
+                            <div ng-switch-when="pink">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's pink label name from <strong>{{ action.data.old.labelNames.pink }}</strong> to <strong>{{ action.data.board.labelNames.pink }}</strong>
+                            </div>
+                            <div ng-switch-when="black">
+                                You changed <strong>{{ action.data.board.name }}</strong> board's black label name from <strong>{{ action.data.old.labelNames.black }}</strong> to <strong>{{ action.data.board.labelNames.black }}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="updateCard">
+                <div ng-switch="identifyUpdateAction(action.data.old)">
+                    <div ng-switch-when="idList">
+                        You moved the card <strong>{{ action.data.card.name }}</strong> from <strong>{{ action.data.listBefore.name }}</strong> to <strong>{{ action.data.listAfter.name }}</strong>
+                    </div>
+                    <div ng-switch-when="closed">
+                        <div ng-show="{{ action.data.card.closed }}">
+                            You closed the card <strong>{{ action.data.card.name }}</strong>
+                        </div>
+                        <div ng-hide="{{ action.data.card.closed }}">
+                            You re-opened the list <strong>{{ action.data.card.name }}</strong>
+                        </div>
+                    </div>
+                    <div ng-switch-when="desc">
+                        You changed the name of the card <strong>{{ action.data.old.name }}</strong> to <strong>{{ action.data.card.desc }}</strong>
+                    </div>
+                    <div ng-switch-when="name">
+                        You changed the name of the card <strong>{{ action.data.old.name }}</strong> to <strong>{{ action.data.card.name }}</strong>
+                    </div>
+                    <div ng-switch-when="pos">
+                        You changed the position of the card <strong>{{ action.data.card.name }}</strong> within the list <strong>{{ action.data.list.name }}</strong>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="updateChecklist"> commentCard </div>
+            <div ng-switch-when="updateList">
+                <div ng-switch="identifyUpdateAction(action.data.old)">
+                    <div ng-switch-when="closed">
+                        <div ng-show="{{ action.data.list.closed }}">
+                            You closed the list <strong>{{ action.data.list.name }}</strong>
+                        </div>
+                        <div ng-hide="{{ action.data.list.closed }}">
+                            You re-opened the list <strong>{{ action.data.list.name }}</strong>
+                        </div>
+                    </div>
+                    <div ng-switch-when="name">
+                        You changed the name of the list <strong>{{ action.data.old.name }}</strong> to <strong>{{ action.data.list.name }}</strong>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="updateMember">
+                You updated <strong>{{ action.data.board.name }}</strong> board's member
+            </div>
+            <div ng-switch-when="updateOrganization">
+                You updated <strong>{{ action.data.organization.name }}</strong> organization's information : 
+                <div ng-show="{{ action.data.organization.desc.length > 0 }}" >Description: <strong>{{ action.data.organization.desc }}</strong></div> 
+                <div ng-show="{{ action.data.organization.website.length > 0 }}" > Website: <strong>{{ action.data.organization.website }}</strong></div>
+            </div>          
+        </div>
+    </div>
 </div>
+<!--<div ng-repeat="notification in notifications">
+    <div ng-switch="{{ notification.type }}">
+        <div ng-switch-when="addMemberToBoard"> addMemberToBoard </div>
+        <div ng-switch-when="commentCard"> commentCard </div>
+        <div ng-switch-default> default </div>
+    </div>
+</div>-->
+<!--:idList - old idlist
+updateCard:closed - old closed : true/false
+updateCard:desc -old desc
+updateCard:name - old name
+updateList:closed
+updateList:name-->
+<!--NOTIFICATIONS
+addedAttachmentToCard
+addedToBoard
+addedToCard
+addedToOrganization
+addedMemberToCard
+addAdminToBoard
+addAdminToOrganization
+cardDueSoon
+changeCard
+closeBoard
+commentCard
+createdCard
+invitedToBoard
+invitedToOrganization
+removedFromBoard
+removedFromCard
+removedMemberFromCard
+removedFromOrganization
+mentionedOnCard
+unconfirmedInvitedToBoard
+unconfirmedInvitedToOrganization
+updateCheckItemStateOnCard
+makeAdminOfBoard
+makeAdminOfOrganization
+declinedInvitationToBoard
+declinedInvitationToOrganization
+memberJoinedTrello-->

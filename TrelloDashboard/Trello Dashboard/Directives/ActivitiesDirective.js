@@ -13,6 +13,7 @@ function activitiesDirective() {
             console.log("inside activities:");
             console.log(scope);
             scope.filterMemberActivities = filterMemberActivities;
+            scope.identifyUpdateAction = identifyUpdateAction;
 
             //filter
             function filterMemberActivities(action) {
@@ -24,6 +25,14 @@ function activitiesDirective() {
                     returnFlag = actionObject.username.toLowerCase() === username;
                 }
                 return returnFlag;
+            }
+
+            function identifyUpdateAction(old) {
+                var keys = [];
+                angular.forEach(old, function (value, key) {
+                    this.push(key);
+                }, keys);
+                return keys[0];
             }
 
 

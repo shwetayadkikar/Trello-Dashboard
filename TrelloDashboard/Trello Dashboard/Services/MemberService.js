@@ -5,6 +5,8 @@ function MemberService($q) {
     var self = this;
     self.getLoggedInMember = getLoggedInMember;
     self.getMemberMentions = getMemberMentions;
+    self.getMemberActions = getMemberActions;
+    self.getMemberNotifications = getMemberNotifications;
 
     function getLoggedInMember() {
         //var deferred = $q.defer();
@@ -15,6 +17,14 @@ function MemberService($q) {
 
     function getMemberMentions(username) {
         return $q(function (resolve) { Trello.members.get(username + "/notifications?filter=mentionedOnCard", resolve) });
+    }
+
+    function getMemberActions(username) {
+        return $q(function (resolve) { Trello.members.get(username + "/actions", resolve) });
+    }
+
+    function getMemberNotifications(username) {
+        return $q(function (resolve) { Trello.members.get(username + "/notifications", resolve) });
     }
 
     //function getMembersActivityFeed(username, boardId) {

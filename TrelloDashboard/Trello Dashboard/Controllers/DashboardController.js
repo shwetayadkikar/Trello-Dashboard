@@ -8,11 +8,11 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
     $scope.user = user;
     $scope.allMentions = {};
     $scope.actions = {};
-    //$scope.filterMemberActivities = filterMemberActivities;
+
     console.log(user);
 
     var mentionsPromise = MemberService.getMemberMentions(user.username);
-    var actionsPromise = BoardService.getBoardActions("5437cbfb7fb61a024da81a8a");
+    var actionsPromise = MemberService.getMemberActions(user.username);//BoardService.getBoardActions("5437cbfb7fb61a024da81a8a");
 
     mentionsPromise.then(mentionsCallback);
     actionsPromise.then(actionsCallback);
@@ -24,8 +24,14 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
     }
 
     function actionsCallback(actions) {
+        var notificationsPromise = MemberService.getMemberNotifications(user.username);
         console.log(actions);
         $scope.actions = actions;
+        notificationsPromise.then(function (notifications) {
+            for (var i = 0; i < notifications.length; i++) {
+                $scope.actions.push(notifications[i]);
+            }            
+        });
     }
 
     // public functions
@@ -35,9 +41,6 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
         $location.url("/");
     }
 
-
-
-
-
+   
 
 }
