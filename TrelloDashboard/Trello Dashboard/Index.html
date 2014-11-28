@@ -5,7 +5,7 @@
 </head>
 <body>
     <link href="Content/bootstrap.css" rel="stylesheet" />
-
+    <link href=" http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.3/fullcalendar.min.css" rel="stylesheet">
     <link href="Content/Site.css" rel="stylesheet" />
 
     <script src="../Scripts/jquery-2.1.1.js"></script>
@@ -13,7 +13,9 @@
     <script src="../Scripts/angular-route.min.js"></script>
  
     <script type="text/javascript" src="https://api.trello.com/1/client.js?key=7259a3d96013866d4051f5536599bb37"></script>
-  
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.3/fullcalendar.min.js"></script>
+
     <script src="app.js"></script>
     <script src="Services/AuthService.js"></script>
     <script src="Services/MemberService.js"></script>
@@ -23,7 +25,10 @@
     <script src="Directives/ActivitiesDirective.js"></script>
     <script src="Directives/MentionsDirective.js"></script>
     <script src="Controllers/DashboardController.js"></script>
+    <script src="Directives/CalendarDirective.js"></script>
+   
 
+   
     <div id="divMain" ng-controller="AppController as appCtrl">
 
         <div ng-view>

@@ -836,6 +836,7 @@
     <Content Include="Trello Dashboard\Controllers\DashboardController.js" />
     <Content Include="Trello Dashboard\Directives\ActivitiesDirective.js" />
     <Content Include="Trello Dashboard\Directives\AvatarDirective.js" />
+    <Content Include="Trello Dashboard\Directives\CalendarDirective.js" />
     <Content Include="Trello Dashboard\Directives\MentionsDirective.js" />
     <Content Include="Trello Dashboard\Index.html" />
     <Content Include="Trello Dashboard\Services\AuthService.js" />
