@@ -187,6 +187,9 @@
                     <div ng-switch-when="pos">
                         You changed the position of the card <strong>{{ action.data.card.name }}</strong> within the list <strong>{{ action.data.list.name }}</strong>
                     </div>
+                    <div ng-switch-when="due">
+                        You set the due of the card <strong>{{ action.data.card.name }}</strong> to <strong>{{ action.data.card.due | date:'medium' }}</strong>
+                    </div>
                 </div>
             </div>
             <div ng-switch-when="updateChecklist"> commentCard </div>
@@ -214,6 +217,7 @@
                 <div ng-show="{{ action.data.organization.website.length > 0 }}" > Website: <strong>{{ action.data.organization.website }}</strong></div>
             </div>          
         </div>
+        <div class="floatRight">{{ action.date | date:'medium' }}</div>
     </div>
 </div>
 <!--<div ng-repeat="notification in notifications">

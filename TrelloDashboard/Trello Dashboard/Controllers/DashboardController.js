@@ -8,14 +8,17 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
     $scope.user = user;
     $scope.allMentions = {};
     $scope.actions = {};
+    $scope.dueCards = {};
 
     console.log(user);
 
     var mentionsPromise = MemberService.getMemberMentions(user.username);
     var actionsPromise = MemberService.getMemberActions(user.username);//BoardService.getBoardActions("5437cbfb7fb61a024da81a8a");
+    var dueCardsPromise = MemberService.getDueCards(user.username);
 
     mentionsPromise.then(mentionsCallback);
     actionsPromise.then(actionsCallback);
+    dueCardsPromise.then(dueCardsCallback)
 
     //private callback functions
     function mentionsCallback(mentions) {
@@ -32,6 +35,20 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
                 $scope.actions.push(notifications[i]);
             }            
         });
+    }
+
+    function dueCardsCallback(cards) {
+        console.log("cards: "+ cards);
+        var dueCards = new Array();
+        angular.forEach(cards, function (card, key) {
+            var calendarObj = {
+                title: card.name,
+                start: card.due
+            };
+            this.push(calendarObj);
+        }, dueCards);
+        $scope.dueCards = dueCards;
+        console.log("duecards: " + dueCards);
     }
 
     // public functions

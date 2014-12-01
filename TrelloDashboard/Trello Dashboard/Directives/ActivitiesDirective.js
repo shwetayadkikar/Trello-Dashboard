@@ -11,7 +11,7 @@ function activitiesDirective() {
         templateUrl: "Templates/Activities.html",
         link: function (scope, element, attrs) {
             console.log("inside activities:");
-            console.log(scope);
+            console.log(scope.actions);
             scope.filterMemberActivities = filterMemberActivities;
             scope.identifyUpdateAction = identifyUpdateAction;
 
