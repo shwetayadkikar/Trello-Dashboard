@@ -13,7 +13,8 @@ function AuthService($location,$q) {
                 type: "popup",
                 success: resolve,
                 error: function () { console.log("error"); },
-                scope: { write: true, read: true }
+                scope: { write: true, read: true },
+                name : "Trello Dashboard"
             })
         });
     }    
