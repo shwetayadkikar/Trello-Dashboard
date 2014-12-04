@@ -115,7 +115,7 @@ div.theHeaderBar {
         padding: 10px;
     }
 
-    div.theHeaderBar a {
+    div.theHeaderBar a, div.boardListWrapper a {
         color: white;
         cursor: pointer;
     }
@@ -127,13 +127,13 @@ div.theHeaderBar {
         background: linear-gradient(#27E6DA, #0DB5AC); /* Standard syntax (must be last) */
     }
 
-    div.theHeaderBar .username {
+    div.theHeaderBar .username, div.boardListWrapper .username {
         padding-left: 5px;
         padding-right: 5px;
         padding-top: 25px;
     }
 
-        div.theHeaderBar .username:hover {
+        div.theHeaderBar .username:hover, div.boardListWrapper .username:hover {
             font-weight: bolder;
         }
 
@@ -153,11 +153,11 @@ div.theHeaderBar {
     padding: 5px;
 }
 
-ul#user_spot {
+ul#user_spot, ul#boardlist {
     list-style: none;
 }
 
-    ul#user_spot li {
+    ul#user_spot li, ul#boardlist li {
         margin: 0px;
         padding: 0px;
         float: left;
@@ -165,10 +165,16 @@ ul#user_spot {
         cursor: pointer;
     }
 
-ul#user_spot_links {
+    ul#boardlist li {
+        background: -webkit-linear-gradient(#27E6DA, #0DB5AC); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#27E6DA, #0DB5AC); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#27E6DA, #0DB5AC); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#27E6DA, #0DB5AC); /* Standard syntax (must be last) */    
+        border-radius:5px;    
+    }
+
+ul#user_spot_links, ul#board_list_links {
     position: absolute;
-    top: 60px;
-    right: 0%;
     display: none;
     list-style: none;
     width: auto;
@@ -178,7 +184,19 @@ ul#user_spot_links {
     padding-left: 0px;
 }
 
-    ul#user_spot_links li {
+ul#user_spot_links {
+    top: 60px;
+    right: 0%;
+}
+
+ul#board_list_links {
+    top: 30px;
+    color: white;
+    z-index: 20;
+    left: 0%;
+}
+
+    ul#user_spot_links li, ul#board_list_links li {
         float: none;
         clear: both;
         padding: 5px;
@@ -188,9 +206,14 @@ ul#user_spot_links {
         background: -o-linear-gradient(#27E6DA, #0DB5AC); /* For Opera 11.1 to 12.0 */
         background: -moz-linear-gradient(#27E6DA, #0DB5AC); /* For Firefox 3.6 to 15 */
         background: linear-gradient(#27E6DA, #0DB5AC); /* Standard syntax (must be last) */
+        border-radius:0px !important;
     }
 
 ul#user_spot:hover ul#user_spot_links {
+    display: block;
+}
+
+ul#boardlist:hover ul#board_list_links {
     display: block;
 }
 
@@ -260,4 +283,9 @@ ul#user_spot:hover ul#user_spot_links {
     overflow-y: scroll;
     text-wrap: avoid;
     height: 400px;
+}
+
+div.boardListWrapper .boardSelect {
+    padding: 5px;
+    color: white;
 }

@@ -9,16 +9,19 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
     $scope.allMentions = {};
     $scope.actions = {};
     $scope.dueCards = {};
+    $scope.boards = {};
 
     console.log(user);
 
     var mentionsPromise = MemberService.getMemberMentions(user.username);
     var actionsPromise = MemberService.getMemberActions(user.username);//BoardService.getBoardActions("5437cbfb7fb61a024da81a8a");
     var dueCardsPromise = MemberService.getDueCards(user.username);
+    var boardsPromise = MemberService.getBoards(user.username);
 
     mentionsPromise.then(mentionsCallback);
     actionsPromise.then(actionsCallback);
-    dueCardsPromise.then(dueCardsCallback)
+    dueCardsPromise.then(dueCardsCallback);
+    boardsPromise.then(boardsCallback);
 
     //private callback functions
     function mentionsCallback(mentions) {
@@ -33,12 +36,12 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
         notificationsPromise.then(function (notifications) {
             for (var i = 0; i < notifications.length; i++) {
                 $scope.actions.push(notifications[i]);
-            }            
+            }
         });
     }
 
     function dueCardsCallback(cards) {
-        console.log("cards: "+ cards);
+        console.log("cards: " + cards);
         var dueCards = new Array();
         angular.forEach(cards, function (card, key) {
             var calendarObj = {
@@ -51,6 +54,10 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
         console.log("duecards: " + dueCards);
     }
 
+    function boardsCallback(boards) {
+        $scope.boards = boards;
+    }
+
     // public functions
     function logout() {
         console.log("logging out!");
@@ -58,6 +65,6 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
         $location.url("/");
     }
 
-   
+
 
 }

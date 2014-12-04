@@ -18,7 +18,20 @@
         </div>
     </div>
     <div id="myDashboardBody">
-        <div id="boardsFilter" class="width100"></div>
+        <div id="boardsFilter" class="width100">
+            <div class="boardListWrapper">
+                <ul id="boardlist">
+                    <li>
+                        <div class="boardSelect">Board<span class="caret white-caret"></span></div>
+                        <ul id="board_list_links">
+                            <li ng-repeat="board in boards">
+                                <a ng-click="Filter()">{{ board.name }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <div class="dashoboardWrap">
             <img src="Content/Images/pin_icon.png" class="pin_img1" />
             <div id="myMentions" class="section" ng-model="allMentions">
