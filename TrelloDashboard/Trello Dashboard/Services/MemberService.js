@@ -31,7 +31,7 @@ function MemberService($q) {
     }
 
     function getDueCards(username) {
-        return $q(function (resolve) { Trello.members.get(username + "/cards?fields=name,due,url", resolve) });
+        return $q(function (resolve) { Trello.members.get(username + "/cards?fields=name,due,url,idBoard", resolve) });
     }
 
     function getBoards(username) {

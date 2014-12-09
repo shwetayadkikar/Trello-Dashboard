@@ -215,7 +215,10 @@
                 You updated <strong>{{ action.data.organization.name }}</strong> organization's information : 
                 <div ng-show="{{ action.data.organization.desc.length > 0 }}" >Description: <strong>{{ action.data.organization.desc }}</strong></div> 
                 <div ng-show="{{ action.data.organization.website.length > 0 }}" > Website: <strong>{{ action.data.organization.website }}</strong></div>
-            </div>          
+            </div>  
+            <div ng-switch-default>
+                You {{ action.type }}
+            </div>        
         </div>
         <div class="floatRight">{{ action.date | date:'medium' }}</div>
     </div>

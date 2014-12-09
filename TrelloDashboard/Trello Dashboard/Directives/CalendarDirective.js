@@ -3,27 +3,33 @@
 
 function fullcalendarDirective(MemberService) {
     var linker = function (scope, element, attrs) {
-        console.log("inside fullcalendar");
 
-        var dueCards = new Array();
+        console.log("inside fullcalendar");
+        scope.dueCards = new Array();
+        scope.$watch("selectedboardid", function (newValue, oldValue) {
+            console.log(oldValue);
+            console.log(newValue);
+            var filteredCards = {};
+            if (newValue != "") {
+                filteredCards = scope.cards.filter(function (element, index, array) { if (element.idBoard) { return element.idBoard == newValue }; return false; });
+                getCalendarData(filteredCards);
+            }
+            else {
+                var dueCardsPromise = MemberService.getDueCards(scope.user.username);
+                dueCardsPromise.then(getCalendarData);
+            }          
+           
+        });
         var dueCardsPromise = MemberService.getDueCards(scope.user.username);
         dueCardsPromise.then(dueCardsCallback);
 
         function dueCardsCallback(cards) {
             console.log("cards: " + cards);
-
-            angular.forEach(cards, function (card, key) {
-                var calendarObj = {
-                    title: card.name,
-                    start: card.due,
-                    url: card.url
-                };
-                this.push(calendarObj);
-            }, dueCards);
-
+            scope.cards = cards;
+            getCalendarData(cards);
             //setup calendar
             $(element[0].firstChild).fullCalendar({
-                events: dueCards,
+                events: scope.dueCards,
                 header: {
                     left: 'prev,next today',
                     center: 'title',
@@ -45,14 +51,32 @@ function fullcalendarDirective(MemberService) {
                 }
             });
         }
+
+        function getCalendarData(cards) {
+            scope.dueCards = new Array();
+            angular.forEach(cards, function (card, key) {
+                var calendarObj = {
+                    title: card.name,
+                    start: card.due,
+                    url: card.url
+                };
+                this.push(calendarObj);
+            }, scope.dueCards);
+            $(element[0].firstChild).fullCalendar('removeEvents');
+            console.log("refersh " + scope.dueCards);
+            $(element[0].firstChild).fullCalendar('addEventSource', scope.dueCards);
+            $(element[0].firstChild).fullCalendar('rerenderEvents');
+        }
     }
 
     return {
         restrict: 'E',
         scope: {
-            user: "="
+            user: "=",
+            selectedboardid: "="
         },
         link: linker,
         template: '<div></div>'
     };
+
 }

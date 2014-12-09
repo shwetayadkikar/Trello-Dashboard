@@ -22,10 +22,14 @@
             <div class="boardListWrapper">
                 <ul id="boardlist">
                     <li>
-                        <div class="boardSelect">Board<span class="caret white-caret"></span></div>
+                        <div class="boardSelect" ng-model="selectedBoard">{{ selectedBoard }}<span class="caret white-caret"></span></div>
                         <ul id="board_list_links">
+                            
                             <li ng-repeat="board in boards">
-                                <a ng-click="Filter()">{{ board.name }}</a>
+                                <a ng-click="filterByBoard(board)">{{ board.name }}</a>
+                            </li>
+                            <li>
+                                <a ng-click="filterByBoard({ id :'',name:'Select Board' })">Select Board</a>
                             </li>
                         </ul>
                     </li>
@@ -35,7 +39,7 @@
         <div class="dashoboardWrap">
             <img src="Content/Images/pin_icon.png" class="pin_img1" />
             <div id="myMentions" class="section" ng-model="allMentions">
-                <mentions mentionslist="allMentions"></mentions>
+                <mentions mentionslist="mentions"></mentions>
             </div>
             <img src="Content/Images/pin_icon.png" class="pin_img2" />
             <div id="myActivities" class="section" ng-model="actions">
@@ -45,7 +49,7 @@
             <div id="myCalendar" class="section" ng-model="dueCards">
                 <h3><center>Due Cards</center></h3>
                 <br />
-                <fullcalendar user="user" /></fullcalendar>
+                <fullcalendar ui-if="selectedBoardId" user="user" selectedboardid="selectedBoardId" /></fullcalendar>
             </div>
         </div>
     </div>
