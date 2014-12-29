@@ -1,56 +1,39 @@
 ﻿<div id="divMyDashboard">
-    <div class="theHeaderBar">
-        <div class="floatLeft logo">Trello Dashboard</div>
-        <div class="floatRight usermenuWrapper width30">
-            <ul class="floatRight  user_spot" id="user_spot">
-                <li class="usermenu">
-                    <div class="floatRight username">{{ user.fullName }}<span class="caret white-caret"></span></div>
-                    <div class="floatRight avatarWrapper">
-                        <avatar avatarhash="user.gravatarHash"></avatar>
-                    </div>
-                    <ul id="user_spot_links">
-                        <li><a ng-click="Redirect('/BurnDown')">Checkout Team mates' activities</a></li>
-                        <li><a ng-click="Redirect('/Burndown')">Burndown chart</a></li>
-                        <li><a ng-click="Logout()">Logout</a></li>
+    <headerbar user="user" currentpage="currentpage"></headerbar>
+        <div id="myDashboardBody">
+            <div id="boardsFilter" class="width100">
+                <div class="boardListWrapper">
+                    <ul id="boardlist">
+                        <li>
+                            <div class="boardSelect" ng-model="selectedBoard">{{ selectedBoard }}<span class="caret white-caret"></span></div>
+                            <ul id="board_list_links">
+
+                                <li ng-repeat="board in boards">
+                                    <a ng-click="filterByBoard(board)">{{ board.name }}</a>
+                                </li>
+                                <li>
+                                    <a ng-click="filterByBoard({ id :'',name:'Select Board' })">Select Board</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div id="myDashboardBody">
-        <div id="boardsFilter" class="width100">
-            <div class="boardListWrapper">
-                <ul id="boardlist">
-                    <li>
-                        <div class="boardSelect" ng-model="selectedBoard">{{ selectedBoard }}<span class="caret white-caret"></span></div>
-                        <ul id="board_list_links">
-                            
-                            <li ng-repeat="board in boards">
-                                <a ng-click="filterByBoard(board)">{{ board.name }}</a>
-                            </li>
-                            <li>
-                                <a ng-click="filterByBoard({ id :'',name:'Select Board' })">Select Board</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                </div>
+            </div>
+            <div class="dashoboardWrap">
+                <img src="Content/Images/pin_icon.png" class="pin_img1" />
+                <div id="myMentions" class="section" ng-model="allMentions">
+                    <mentions mentionslist="mentions"></mentions>
+                </div>
+                <img src="Content/Images/pin_icon.png" class="pin_img2" />
+                <div id="myActivities" class="section" ng-model="actions">
+                    <activities actions="actions" user="user"></activities>
+                </div>
+                <img src="Content/Images/pin_icon.png" class="pin_img3" />
+                <div id="myCalendar" class="section" ng-model="dueCards">
+                    <h3><center>Due Cards</center></h3>
+                    <br />
+                    <fullcalendar ui-if="selectedBoardId" user="user" selectedboardid="selectedBoardId" /></fullcalendar>
+                </div>
             </div>
         </div>
-        <div class="dashoboardWrap">
-            <img src="Content/Images/pin_icon.png" class="pin_img1" />
-            <div id="myMentions" class="section" ng-model="allMentions">
-                <mentions mentionslist="mentions"></mentions>
-            </div>
-            <img src="Content/Images/pin_icon.png" class="pin_img2" />
-            <div id="myActivities" class="section" ng-model="actions">
-                <activities actions="actions" user="user"></activities>
-            </div>
-            <img src="Content/Images/pin_icon.png" class="pin_img3" />
-            <div id="myCalendar" class="section" ng-model="dueCards">
-                <h3><center>Due Cards</center></h3>
-                <br />
-                <fullcalendar ui-if="selectedBoardId" user="user" selectedboardid="selectedBoardId" /></fullcalendar>
-            </div>
-        </div>
-    </div>
 </div>

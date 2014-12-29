@@ -4,7 +4,6 @@
 
 function DashboardController($scope, $location, MemberService, BoardService, AuthService, user) {
     var self = this;
-    $scope.Logout = logout;
     $scope.filterByBoard = filterByBoard;
     $scope.user = user;
     $scope.allMentions = {};
@@ -13,7 +12,7 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
     $scope.boards = {};
     $scope.selectedBoardId = "";
     $scope.selectedBoard = "Select Board";
-    $scope.Redirect = Redirect;
+    $scope.currentpage = "mydashboard";
     console.log(user);
 
     var mentionsPromise = MemberService.getMemberMentions(user.username);
@@ -32,15 +31,15 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
     }
 
     function actionsCallback(actions) {
-        var notificationsPromise = MemberService.getMemberNotifications(user.username);
+        //var notificationsPromise = MemberService.getMemberNotifications(user.username);
         console.log(actions);
         $scope.AllActions = actions;
         $scope.actions = actions;
-        notificationsPromise.then(function (notifications) {
-            for (var i = 0; i < notifications.length; i++) {
-                $scope.actions.push(notifications[i]);
-            }
-        });
+        //notificationsPromise.then(function (notifications) {
+        //    for (var i = 0; i < notifications.length; i++) {
+        //        $scope.actions.push(notifications[i]);
+        //    }
+        //});
     }
     
     function boardsCallback(boards) {
@@ -48,12 +47,7 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
     }
 
     // public functions
-    function logout() {
-        console.log("logging out!");
-        AuthService.deauthorize();
-        $location.url("/");
-    }
-
+   
 
     function filterByBoard(board) {
         //$scope.allMentions.
@@ -69,12 +63,7 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
             $scope.actions = $scope.AllActions;
             $scope.mentions = $scope.allMentions;
         } 
-    }
-
-    function Redirect(url) {
-        console.log("Redirecting!");
-        $location.url(url);
-    }
+    }  
 
 
 }

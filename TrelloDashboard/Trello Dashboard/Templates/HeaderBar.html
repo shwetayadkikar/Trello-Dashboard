@@ -1,0 +1,28 @@
+﻿<div class="theHeaderBar">
+    <div class="floatLeft logo">Trello Dashboard</div>
+    <div class="floatRight usermenuWrapper width30">
+        <ul class="floatRight  user_spot" id="user_spot">
+            <li class="usermenu" ng-switch="currentpage">
+                <div class="floatRight username">{{ user.fullName }}<span class="caret white-caret"></span></div>
+                <div class="floatRight avatarWrapper">
+                    <avatar avatarhash="user.gravatarHash"></avatar>
+                </div>
+                <ul id="user_spot_links" ng-switch-when="mydashboard">
+                    <li><a ng-click="Redirect('/BurnDown')">Checkout Team mates' activities</a></li>
+                    <li><a ng-click="Redirect('/Burndown')">Burndown chart</a></li>
+                    <li><a ng-click="Logout()">Logout</a></li>
+                </ul>
+                <ul id="user_spot_links" ng-switch-when="teamdashboard">
+                    <li><a ng-click="Redirect('/Dashboard')">My Dashboard</a></li>
+                    <li><a ng-click="Redirect('/Burndown')">Burndown chart</a></li>
+                    <li><a ng-click="Logout()">Logout</a></li>
+                </ul>
+                <ul id="user_spot_links" ng-switch-when="burndown">
+                    <li><a ng-click="Redirect('/Dashboard')">My Dashboard</a></li>
+                    <li><a ng-click="Redirect('/BurnDown')">Checkout Team mates' activities</a></li>
+                    <li><a ng-click="Logout()">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

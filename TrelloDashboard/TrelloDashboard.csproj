@@ -838,6 +838,7 @@
     <Content Include="Trello Dashboard\Directives\ActivitiesDirective.js" />
     <Content Include="Trello Dashboard\Directives\AvatarDirective.js" />
     <Content Include="Trello Dashboard\Directives\CalendarDirective.js" />
+    <Content Include="Trello Dashboard\Directives\HeaderBarDirective.js" />
     <Content Include="Trello Dashboard\Directives\MentionsDirective.js" />
     <Content Include="Trello Dashboard\Index.html" />
     <Content Include="Trello Dashboard\Services\AuthService.js" />
@@ -845,6 +846,7 @@
     <Content Include="Trello Dashboard\Services\CardService.js" />
     <Content Include="Trello Dashboard\Services\MemberService.js" />
     <Content Include="Trello Dashboard\Templates\Activities.html" />
+    <Content Include="Trello Dashboard\Templates\HeaderBar.html" />
     <Content Include="Trello Dashboard\Templates\Mentions.html" />
     <Content Include="Trello Dashboard\Views\Burndown.html" />
     <Content Include="Trello Dashboard\Views\Dashboard.html" />

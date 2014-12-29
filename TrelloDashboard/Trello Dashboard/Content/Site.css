@@ -187,6 +187,7 @@ ul#user_spot_links, ul#board_list_links {
 ul#user_spot_links {
     top: 60px;
     right: 0%;
+    z-index: 1000;
 }
 
 ul#board_list_links {

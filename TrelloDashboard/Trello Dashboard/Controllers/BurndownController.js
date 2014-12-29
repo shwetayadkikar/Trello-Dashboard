@@ -8,6 +8,8 @@ function BurndownController($scope, $location, $q, MemberService, CardService, u
     $scope.endDate = new Date();
     $scope.startDate = new Date();
     $scope.realTimeData = new Array(); // real time x, y values (x = day, y = burnt days)
+    $scope.user = user;
+    $scope.currentpage = "burndown";
 
     console.log("inside burndown");
     var dueCardsPromise = MemberService.getDueCards(user.username);
