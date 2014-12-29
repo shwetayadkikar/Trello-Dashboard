@@ -832,6 +832,7 @@
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Trello Dashboard\app.js" />
+    <Content Include="Trello Dashboard\Controllers\BurndownController.js" />
     <Content Include="Trello Dashboard\Controllers\LoginController.js" />
     <Content Include="Trello Dashboard\Controllers\DashboardController.js" />
     <Content Include="Trello Dashboard\Directives\ActivitiesDirective.js" />
@@ -841,9 +842,11 @@
     <Content Include="Trello Dashboard\Index.html" />
     <Content Include="Trello Dashboard\Services\AuthService.js" />
     <Content Include="Trello Dashboard\Services\BoardService.js" />
+    <Content Include="Trello Dashboard\Services\CardService.js" />
     <Content Include="Trello Dashboard\Services\MemberService.js" />
     <Content Include="Trello Dashboard\Templates\Activities.html" />
     <Content Include="Trello Dashboard\Templates\Mentions.html" />
+    <Content Include="Trello Dashboard\Views\Burndown.html" />
     <Content Include="Trello Dashboard\Views\Dashboard.html" />
     <Content Include="Trello Dashboard\Views\Login.html" />
     <Content Include="Web.config" />

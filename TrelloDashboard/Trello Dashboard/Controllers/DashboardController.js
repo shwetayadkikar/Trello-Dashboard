@@ -13,6 +13,7 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
     $scope.boards = {};
     $scope.selectedBoardId = "";
     $scope.selectedBoard = "Select Board";
+    $scope.Redirect = Redirect;
     console.log(user);
 
     var mentionsPromise = MemberService.getMemberMentions(user.username);
@@ -41,11 +42,7 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
             }
         });
     }
-
-
-
-   
-
+    
     function boardsCallback(boards) {
         $scope.boards = boards;
     }
@@ -56,6 +53,7 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
         AuthService.deauthorize();
         $location.url("/");
     }
+
 
     function filterByBoard(board) {
         //$scope.allMentions.
@@ -72,5 +70,11 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
             $scope.mentions = $scope.allMentions;
         } 
     }
+
+    function Redirect(url) {
+        console.log("Redirecting!");
+        $location.url(url);
+    }
+
 
 }

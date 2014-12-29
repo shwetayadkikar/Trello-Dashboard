@@ -17,8 +17,8 @@ function fullcalendarDirective(MemberService) {
             else {
                 var dueCardsPromise = MemberService.getDueCards(scope.user.username);
                 dueCardsPromise.then(getCalendarData);
-            }          
-           
+            }
+
         });
         var dueCardsPromise = MemberService.getDueCards(scope.user.username);
         dueCardsPromise.then(dueCardsCallback);
@@ -55,12 +55,14 @@ function fullcalendarDirective(MemberService) {
         function getCalendarData(cards) {
             scope.dueCards = new Array();
             angular.forEach(cards, function (card, key) {
-                var calendarObj = {
-                    title: card.name,
-                    start: card.due,
-                    url: card.url
-                };
-                this.push(calendarObj);
+                if (card.due != null) {
+                    var calendarObj = {
+                        title: card.name,
+                        start: card.due,
+                        url: card.url
+                    };
+                    this.push(calendarObj);
+                }
             }, scope.dueCards);
             $(element[0].firstChild).fullCalendar('removeEvents');
             console.log("refersh " + scope.dueCards);

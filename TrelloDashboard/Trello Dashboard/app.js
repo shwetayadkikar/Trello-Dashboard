@@ -26,7 +26,17 @@ angular.module('trelloDashboard').config(['$routeProvider', function ($routeProv
                  
              }
          }
-     });
+     })
+    .when('/Burndown', {
+        templateUrl: 'Views/Burndown.html',
+        controller: 'BurndownController',
+        resolve: {
+            user: function (MemberService) {
+                return MemberService.getLoggedInMember();
+
+            }
+        }
+    });
 }]);
 
 
