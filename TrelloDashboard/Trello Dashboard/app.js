@@ -5,7 +5,7 @@ angular.module("trelloDashboard").controller("AppController", ['$scope', '$rootS
 
 function AppController($scope, $rootScope, AuthService) {
     var self = this;
- 
+
     //function getAvatarSource(gravatarHash) {
     //    return "http://www.gravatar.com/avatar/" + avatarHash;
     //}
@@ -23,8 +23,17 @@ angular.module('trelloDashboard').config(['$routeProvider', function ($routeProv
          resolve: {
              user: function (MemberService) {
                  return MemberService.getLoggedInMember();
-                 
+
              }
+         }
+     })
+     .when('/TeamDashboard', {
+         templateUrl: 'Views/TeamDashboard.html',
+         controller: 'TeamDashboardController',
+         resolve: {
+             user: function (MemberService) {
+                 return MemberService.getLoggedInMember();
+             },
          }
      })
     .when('/Burndown', {
@@ -33,7 +42,6 @@ angular.module('trelloDashboard').config(['$routeProvider', function ($routeProv
         resolve: {
             user: function (MemberService) {
                 return MemberService.getLoggedInMember();
-
             }
         }
     });

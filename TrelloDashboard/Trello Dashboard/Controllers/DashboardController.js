@@ -1,13 +1,15 @@
 ﻿angular.module("trelloDashboard")
-       .controller("DashboardController", ['$scope', '$location', 'MemberService', 'BoardService', 'AuthService', 'user', DashboardController]);
+       .controller("DashboardController", ['$scope', '$location', 'MemberService', 'BoardService', 'AuthService', 'CardService', '$q', 'user', DashboardController]);
 
 
-function DashboardController($scope, $location, MemberService, BoardService, AuthService, user) {
+function DashboardController($scope, $location, MemberService, BoardService, AuthService, CardService, $q, user) {
     var self = this;
     $scope.filterByBoard = filterByBoard;
     $scope.user = user;
-    $scope.allMentions = {};
-    $scope.mentions = {};
+    $scope.allMentions = [];
+    $scope.mentions = [];
+    $scope.allCardMentions = {};
+    $scope.cardMentions = {};
     $scope.actions = {};
     $scope.boards = {};
     $scope.selectedBoardId = "";
@@ -15,39 +17,48 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
     $scope.currentpage = "mydashboard";
     console.log(user);
 
-    var mentionsPromise = MemberService.getMemberMentions(user.username);
     var actionsPromise = MemberService.getMemberActions(user.username);//BoardService.getBoardActions("5437cbfb7fb61a024da81a8a");
     var boardsPromise = MemberService.getBoards(user.username);
+    var cardsPromise = MemberService.getDueCards(user.username);
+   
 
-    mentionsPromise.then(mentionsCallback);
     actionsPromise.then(actionsCallback);
     boardsPromise.then(boardsCallback);
+    cardsPromise.then(cardsCallback);
 
-    //private callback functions
-    function mentionsCallback(mentions) {
-        console.log(mentions);
-        $scope.mentions = mentions;
-        $scope.allMentions = mentions;
-    }
 
     function actionsCallback(actions) {
-        //var notificationsPromise = MemberService.getMemberNotifications(user.username);
         console.log(actions);
         $scope.AllActions = actions;
-        $scope.actions = actions;
-        //notificationsPromise.then(function (notifications) {
-        //    for (var i = 0; i < notifications.length; i++) {
-        //        $scope.actions.push(notifications[i]);
-        //    }
-        //});
+        $scope.actions = actions;       
     }
-    
+
     function boardsCallback(boards) {
         $scope.boards = boards;
     }
 
-    // public functions
-   
+    function cardsCallback(cards) {
+        angular.forEach(cards, function (card, key) {
+            var commentsPromise = CardService.getCardComments(card.id);
+            commentsPromise.then(commentsCallback);
+        }, null);
+    }
+
+    function commentsCallback(comments) {
+        for (var commentIndex = 0; commentIndex < comments.length; commentIndex++) {
+            var commentText = comments[commentIndex].data.text;
+            if (commentText.indexOf($scope.user.username) >= 0) {
+                var mention = {};
+                mention.memberCreator = comments[commentIndex].memberCreator;
+                mention.data = comments[commentIndex].data;
+                mention.date = comments[commentIndex].date;
+                $scope.mentions.push(mention);
+                $scope.allMentions.push(mention);
+            }
+        }
+    }
+
+    // public functions  
 
     function filterByBoard(board) {
         //$scope.allMentions.
@@ -62,8 +73,8 @@ function DashboardController($scope, $location, MemberService, BoardService, Aut
         else {
             $scope.actions = $scope.AllActions;
             $scope.mentions = $scope.allMentions;
-        } 
-    }  
+        }
+    }
 
 
 }

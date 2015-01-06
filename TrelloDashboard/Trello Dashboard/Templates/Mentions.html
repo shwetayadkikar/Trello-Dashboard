@@ -1,8 +1,8 @@
 ﻿<h3><center>Mentions</center></h3>
 <div class="data">
     <div class="subSection" ng-repeat="mention in mentionslist">
-        <div class="width100">{{ mention.memberCreator.username }} mentioned you on {{ mention.data.board.name }} board in the card {{ mention.data.card.name }}:</div>
-        <div class="width100" style="padding-left:10px;">{{ mention.data.text }}</div>
+        <div class="width100"><strong>{{ mention.memberCreator.username }}</strong> mentioned you on <strong> {{ mention.data.board.name }}</strong> board in the card <strong> {{ mention.data.card.name }}:</strong></div>
+        <div class="width100" style="padding-left:10px;"><strong>{{ mention.data.text }}</strong></div>
         <div class="floatRight">{{ mention.date | date:'medium' }}</div>
     </div>
 </div>

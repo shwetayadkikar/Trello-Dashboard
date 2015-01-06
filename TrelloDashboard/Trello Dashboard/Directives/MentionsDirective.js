@@ -5,15 +5,13 @@ function mentionsDirective(MemberService) {
     return {
         restrict: 'E',
         scope: {
-            mentionslist: "="
+            mentionslist: "=",           
         },
         templateUrl: "Templates/Mentions.html",
         link: function (scope, element, attrs) {
           
             console.log("inside mentions:");
-            console.log(scope);
-          
-           
+            console.log(scope);        
 
         }
 
